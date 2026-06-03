@@ -1,0 +1,15 @@
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+
+# Folders (user added)
+figs/
+mask/
+outputs/
+outputs_maps/
+scripts/temp/
+
+# Files (user added)
+*.nc
+
