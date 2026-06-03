@@ -15,7 +15,7 @@ base_dir = os.path.dirname(__file__)
 
 anom_file = os.path.join(
     base_dir, "..", "outputs_maps",
-    "swwa_precip_anom_2023_2024.nc"
+    "swwa_tmin_anom_2023_2024.nc"
 )
 
 region_shp = os.path.join(
@@ -43,14 +43,7 @@ end_month = 7     # July
 
 print("Loading anomaly data...")
 ds = xr.open_dataset(anom_file)
-
-# ✅ FIX: ensure consistent coordinate names
-if "longitude" in ds.coords:
-    ds = ds.rename({"longitude": "lon"})
-if "latitude" in ds.coords:
-    ds = ds.rename({"latitude": "lat"})
-
-data = ds["precip"]
+data = ds["tmin"]
 
 # ---------------------------------------------------------
 # BUILD TIME LIST
@@ -105,11 +98,6 @@ for i, (year, month) in enumerate(times):
         time=(data.time.dt.year == year) &
              (data.time.dt.month == month)
     ).squeeze()
-
-    # ✅ DEBUG HERE
-    print(subset)
-    print(subset.coords)
-    print(subset.dims)
 
     # ✅ auto colour scale (per panel)
     vmin = float(subset.min())
@@ -189,7 +177,7 @@ for j in range(nplots, len(axes)):
 
 plt.tight_layout()
 
-outfile = os.path.join(fig_dir, "SWWA_precip_panel_maps_noscale.png")
+outfile = os.path.join(fig_dir, "SWWA_tmin_panel_maps_noscale.png")
 
 plt.savefig(outfile, dpi=300)
 plt.close()
