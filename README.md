@@ -76,6 +76,7 @@ ARDC Nectar cloud
 
 ## 3. Creation of the timeseries figures
 ### Workflow
+This section describes the workflow used to generate monthly climatology and anomaly .nc files for the IBRA region using AGCD datasets. These outputs are used as inputs for subsequent timeseries visualisation scripts.
 
 
 ### Scripts
@@ -87,8 +88,8 @@ ARDC Nectar cloud
 
 
 ## 4. Creation of the anomaly map figures
-### Data preparation Workflow
-This section describes the workflow used to generate monthly climatology () and anomaly .nc files for the SWWA region using AGCD datasets. These outputs are used as inputs for subsequent map visualisation scripts.
+### Data preparation workflow
+This section describes the workflow used to generate monthly climatology and anomaly .nc files for the SWWA region using AGCD datasets. These outputs are used as inputs for subsequent map visualisation scripts.
 
 #### Data preparation script
 - 3_calc_agcd_swwa_mth_mean_clim_allvar.py
@@ -106,6 +107,7 @@ The analysis uses Australian Gridded Climate Data (AGCD) v1.0.3:
 Notes:
 ```
 - The VPD dataset (vapourpres_h15) is provided at daily resolution and is aggregated to monthly means during processing.
+
 The variable names used within NetCDF files differ from folder names:
  - tmin, tmax, precip
  - vapourpres (for VPD input)
@@ -122,10 +124,10 @@ This produces a consistent grid across all variables: (time, lat, lon)
 ```
 For monthly datasets (tmin, tmax, precip)
  - Data are used directly as monthly values.
-```
+
 For vapour pressure (VPD proxy)
  - Daily data are aggregated to monthly means: monthly = daily.resample(time="1M").mean()
-
+```
 4. Climatology Calculation
 ```
 Monthly climatologies are computed for three standard periods:
@@ -167,6 +169,10 @@ swwa_<var>_clim_1995_2024.nc         # recent climatology
 ```
 
 ## Anomaly map plots creation workflow
+```
+Each variable was analysed separately, first with no land mask and no set scale in order to ascertain the optimal colour scale range. Once the colour scale range was chosen, the final anomaly plot for each variable was created, masked to show land only, with the IBRA region used in the timeseries plots and elsewhere in the project included on each map for reference. 
+Sixteen month plots (April 2023 to July 2024 inclusive) for each variables were chosen initially to evaluated the optimal month set for inclusion in the research. 
+```
 
 ### Scripts
 - plot_agcd_anomalies_year_precip_maps_panel_noscale.py         (interim precip map plot to ascertain colour scale for final plot, month/year choice)
@@ -178,3 +184,6 @@ swwa_<var>_clim_1995_2024.nc         # recent climatology
 - plot_agcd_anomalies_year_tmin_maps_panel_scale_landonly.py	(final tmin map plot, set scale, month/year choice, masked to land only)
 - plot_agcd_anomalies_year_vpd15_maps_panel_noscale.py		    (interim vpd15 map plot to ascertain colour scale for final plot, no land mask)
 - plot_agcd_anomalies_year_vpd15_maps_panel_scale_landonly.py	(final vpd15 map plot, set scale, month/year choice, masked to land only)
+
+- plot_agcd_anomalies_year_all_maps_panel_scale_landonly.py     (final combined variables map plot for inclusion in paper - set scales, month/year choice, masked to land only)
+
