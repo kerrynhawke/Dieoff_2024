@@ -51,6 +51,8 @@ The IBRA regions of Lesueur Sandplain, Dandaragan Plateau, Perth, Northern Jarra
 - 1g_plot_ibra7_swwamask.py
 
 ## 2. Data preparation
+
+### Scripts
 - 2a_calc_mask_agcd_mth_mean_clim_tp.py
 - 2b_calc_mask_agcd_mth_mean_clim_tmax.py
 - 2c_calc_mask_agcd_mth_mean_clim_tmin.py
@@ -62,6 +64,8 @@ The IBRA regions of Lesueur Sandplain, Dandaragan Plateau, Perth, Northern Jarra
 - 3b_calc_agcd_swwa_mth_mean_clim_tmax_tmin_temp.py
 
 ## 3. Creation of the figures
+
+### Scripts
 - plot_agcd_anomalies_year_all_choice_timeseries.py
 - plot_agcd_anomalies_year_all_timeseries.py
 - plot_agcd_anomalies_year_precip_maps_panel_noscale.py		(interim precip map plot to ascertain colour scale for final plot, month/year choice)
