@@ -249,11 +249,11 @@ cbar = fig.colorbar(
     extend="both"
 )
 
-ticks = np.arange(-6, 6, 0.5)
+ticks = np.arange(-4, 5, 1.0)
 cbar.set_ticks(ticks)
 cbar.set_ticklabels([f"{t:g}" for t in ticks])
 
-cbar.set_label("Tmax anomaly (mm)", fontsize=10)
+cbar.set_label("Tmin anomaly (mm)", fontsize=10)
 cbar.ax.tick_params(labelsize=8, length=3)
 
 # ---------------------------------------------------------

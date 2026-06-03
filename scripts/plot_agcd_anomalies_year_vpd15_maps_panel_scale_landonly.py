@@ -16,7 +16,7 @@ base_dir = os.path.dirname(__file__)
 
 anom_file = os.path.join(
     base_dir, "..", "outputs_maps",
-    "swwa_tmax_anom_2023_2024.nc"
+    "swwa_vpd15_anom_2023_2024.nc"   # ✅ UPDATED
 )
 
 region_shp = os.path.join(
@@ -38,9 +38,9 @@ start_month = 4
 end_year = 2024
 end_month = 7
 
-# ✅ COLOUR SCALE
-vmin = -6
-vmax = 6
+# ✅ COLOUR SCALE (adjust if needed for VPD units)
+vmin = -4
+vmax = 4
 levels = np.linspace(vmin, vmax, 51)
 
 # ---------------------------------------------------------
@@ -49,7 +49,17 @@ levels = np.linspace(vmin, vmax, 51)
 
 print("Loading anomaly data...")
 ds = xr.open_dataset(anom_file)
-data = ds["tmax"]
+
+# ✅ Standardise coordinate names
+rename_dict = {}
+if "longitude" in ds.coords:
+    rename_dict["longitude"] = "lon"
+if "latitude" in ds.coords:
+    rename_dict["latitude"] = "lat"
+if rename_dict:
+    ds = ds.rename(rename_dict)
+
+data = ds["vpd15"]   # ✅ UPDATED VARIABLE
 
 # ---------------------------------------------------------
 # LOAD AND FIX MASK
@@ -60,22 +70,22 @@ mask_ds = xr.open_dataset(mask_file)
 
 mask = mask_ds["landmask"]
 
-print("Original mask shape:", mask.shape)
+# ✅ Fix mask coordinate names safely
+rename_dict = {}
+if "longitude" in mask.coords:
+    rename_dict["longitude"] = "lon"
+if "latitude" in mask.coords:
+    rename_dict["latitude"] = "lat"
+if rename_dict:
+    mask = mask.rename(rename_dict)
 
-# ✅ rename coords
-mask = mask.rename({
-    "latitude": "lat",
-    "longitude": "lon"
-})
-
-# ✅ interpolate to data grid
+# ✅ Interpolate mask to data grid
 mask = mask.interp_like(data)
 
-# ✅ CRITICAL FIX: threshold after interpolation
+# ✅ Convert to boolean land mask
 mask = mask > 0.5
 
-print("Aligned mask shape:", mask.shape)
-print("Land fraction:", mask.mean().values)
+print("Mask aligned. Land fraction:", float(mask.mean()))
 
 # ---------------------------------------------------------
 # BUILD TIME LIST
@@ -130,19 +140,23 @@ for i, (year, month) in enumerate(times):
              (data.time.dt.month == month)
     ).squeeze()
 
-    # ✅ APPLY LAND MASK (FAST NOW)
+    # ✅ APPLY LAND MASK
     subset = subset.where(mask)
+
+    # ✅ SAFE coordinate handling
+    lon = subset.coords["lon"] if "lon" in subset.coords else subset.coords["longitude"]
+    lat = subset.coords["lat"] if "lat" in subset.coords else subset.coords["latitude"]
 
     # ✅ DOMAIN
     ax.set_extent([114.5, 120.0, -35.5, -28.6])
 
     # ✅ DATA
     cf = ax.contourf(
-        subset.lon,
-        subset.lat,
+        lon,
+        lat,
         subset,
         levels=levels,
-        cmap="RdBu_r",
+        cmap="RdBu",
         vmin=vmin,
         vmax=vmax,
         extend="both",
@@ -181,20 +195,14 @@ for i, (year, month) in enumerate(times):
     col = i % ncols
 
     if row == nrows - 1:
-        ax.set_xticklabels(
-            [f"{x:.1f}" if j != 0 else "" for j, x in enumerate(xticks)],
-            fontsize=7
-        )
+        ax.set_xticklabels([f"{x:.1f}" if j != 0 else "" for j, x in enumerate(xticks)], fontsize=7)
         ax.tick_params(axis="x", bottom=True)
     else:
         ax.set_xticklabels([])
         ax.tick_params(axis="x", bottom=False)
 
     if col == 0:
-        ax.set_yticklabels(
-            [f"{y:.1f}" if j != 0 else "" for j, y in enumerate(yticks)],
-            fontsize=7
-        )
+        ax.set_yticklabels([f"{y:.1f}" if j != 0 else "" for j, y in enumerate(yticks)], fontsize=7)
         ax.tick_params(axis="y", left=True)
     else:
         ax.set_yticklabels([])
@@ -249,18 +257,18 @@ cbar = fig.colorbar(
     extend="both"
 )
 
-ticks = np.arange(-6, 7, 1.0)
+ticks = np.linspace(vmin, vmax, 9)
 cbar.set_ticks(ticks)
-cbar.set_ticklabels([f"{t:g}" for t in ticks])
+cbar.set_ticklabels([f"{t:.1f}" for t in ticks])
 
-cbar.set_label("Tmax anomaly (mm)", fontsize=10)
+cbar.set_label("VPD anomaly (kPa)", fontsize=10)   # ✅ UPDATED LABEL
 cbar.ax.tick_params(labelsize=8, length=3)
 
 # ---------------------------------------------------------
 # SAVE
 # ---------------------------------------------------------
 
-outfile = os.path.join(fig_dir, "SWWA_tmax_panel_maps_landonly.png")
+outfile = os.path.join(fig_dir, "SWWA_vpd15_panel_maps_landonly.png")
 
 print("Saving figure to:", outfile)
 
