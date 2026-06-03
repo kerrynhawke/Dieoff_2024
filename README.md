@@ -1,4 +1,5 @@
-
+# Project Overview
+This git repository contains the scripts and workflow used in the climate analysis of the 2024 browning event in southwest Western Australia as part of a research project looking into the drivers and impacts of this event (article TBA).
 
 
 # Directory Structure
