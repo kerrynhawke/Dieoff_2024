@@ -3,14 +3,14 @@ This git repository contains the scripts and workflow used in the climate analys
 
 
 # Directory Structure
-
+``
 |-- Dieoff_2024
 	|-- figs		(all graph outputs)
 	|-- mask		(coast and IBRA masks)
 	|-- outputs		(all data outputs)
 	|-- outputs_maps	(all map outputs)
 	|-- scripts		(all calculation, plotting scripts)
-
+``
 # Input data
 ## 1. AGCD data
 The Australian Gridded Climate Data (AGCD) is a high-resolution gridded precipitation dataset that provides spatially continuous gridded data across the whole of continental Australia (Evans et al., 2020; Jones et al., 2009). It is available at daily, monthly, and annual intervals, with spatial resolutions of 0.05° × 0.05° (approximately 5 km²) and 0.01 × 0.01° (approximately 1 km²). Compiled using manual and automated rain gauge observations collected by the Australian Bureau of Meteorology, the AGCD has two versions: the original AGCD v1 (previously referred to as the Australian Water Availability Project, AWAP) and the updated AGCD v2. With challenges posed by limited station data in certain areas, the dataset is particularly valuable in remote regions, like much of Western Australia, where observational data is sparse. It was developed specifically for climate analysis within the Australian region (Evans et al., 2020) and has been widely applied since its inception for applications such as studies of rainfall trends (e.g., McKay et al., 2023; Waha et al., 2022), extreme events (e.g., Dowdy & Catto, 2017) and evaluations of seasonal forecasts (Firth et al., 2024) and regional climate model outputs (e.g., Chapman et al., 2023; Thambipillai et al., 2026). In this study, AGCD v2 was used, the data were stored in NetCDF format and analysed using Python v3.9.23 (Python Software Foundation, 2025).
