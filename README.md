@@ -104,26 +104,30 @@ The analysis uses Australian Gridded Climate Data (AGCD) v1.0.3:
 
 ```
 Notes:
+```
 - The VPD dataset (vapourpres_h15) is provided at daily resolution and is aggregated to monthly means during processing.
 The variable names used within NetCDF files differ from folder names:
  - tmin, tmax, precip
  - vapourpres (for VPD input)
-
+```
 2. Spatial Subsetting
+```
 All variables are subset to the South-West Western Australia (SWWA) domain:
  - Latitude:  -37.0 to -27.7  
  - Longitude: 113.3 to 120.2
 
 This produces a consistent grid across all variables: (time, lat, lon)
-
+```
 3. Monthly Data Preparation
+```
 For monthly datasets (tmin, tmax, precip)
  - Data are used directly as monthly values.
-
+```
 For vapour pressure (VPD proxy)
  - Daily data are aggregated to monthly means: monthly = daily.resample(time="1M").mean()
 
 4. Climatology Calculation
+```
 Monthly climatologies are computed for three standard periods:
 - 1961–1990
 - 1971–2000 (baseline)
@@ -132,16 +136,18 @@ Monthly climatologies are computed for three standard periods:
 For each period: climatology(month, lat, lon) = mean over all years for each calendar month
  - This produces a dataset with dimensions: (month, lat, lon)
  - Climatologies are saved as: outputs_maps/swwa_<var>_clim_<period>.nc
-
+```
 5. Target Period Extraction
+```
 Monthly data are extracted for the analysis period:
  - Years: 2023–2024  
  - Months: January–December
 
  - This produces a dataset with dimensions: (time, lat, lon)
  - Monthly files are saved as: outputs_maps/swwa_<var>_monthly_2023_2024.nc
-
+```
 6. Anomaly Calculation
+```
 Anomalies are calculated relative to the 1971–2000 baseline climatology.
 
 For each grid cell and time step: anomaly = observed_value − climatological_mean_for_that_month
@@ -149,15 +155,16 @@ For each grid cell and time step: anomaly = observed_value − climatological_me
  - This ensures January values are compared to January climatology, February values to February climatology, etc.
  - This produces a dataset with dimensions: (time, lat, lon)
  - Anomaly files saved as: outputs_maps/swwa_<var>_anom_2023_2024.nc
-
+```
 7. Output Files
+```
 For each variable, the following files are produced:
 swwa_<var>_monthly_2023_2024.nc      # raw monthly data
 swwa_<var>_anom_2023_2024.nc         # anomalies vs 1971–2000
 swwa_<var>_clim_1961_1990.nc         # climatology
 swwa_<var>_clim_1971_2000.nc         # baseline climatology
 swwa_<var>_clim_1995_2024.nc         # recent climatology
-
+```
 
 ## Anomaly map plots creation workflow
 
