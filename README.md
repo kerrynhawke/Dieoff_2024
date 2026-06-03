@@ -18,23 +18,23 @@ The Australian Gridded Climate Data (AGCD) is a high-resolution gridded precipit
 The IBRA regions of Lesueur Sandplain, Dandaragan Plateau, Perth, Northern Jarrah Forest, Southern Jarrah Forest, and Warren (DCCEEW, 2012) were used as a mask to represent the southwestern Australian area in the calculations of the Tmax, Tmean, Tmin, precipitation and VPD 30-year climatological means and monthly means used in the timeseries plots (Figure 1a). Note that the whole land area, bounded by the coast, has been retained for the maps (Figure 1b).
 
 ## 3. Variables
-- Precip	precipitation (units)
-- Tmax		maximum temperature (degC)
-- Tmean		mean temperature (degC) (calculated from (Tmax + Tmin)/2)
-- Tmin		minimum temperature (degC)
-- vpd15		vapour pressure deficiat at 3 pm local time (units)
+- Precip	precipitation (mm, daily totals)
+- Tmax		maximum temperature (°C)
+- Tmean		mean temperature (°C; calculated from (Tmax + Tmin)/2)
+- Tmin		minimum temperature (°C)
+- vpd15		vapour pressure deficit at 3 pm local time (kPa)
 
 ## References
-Chapman, S., Syktus, J., Trancoso, R., Thatcher, M., Toombs, N., Wong, K. K., & Takbash, A. (2023). Evaluation of Dynamically Downscaled CMIP6‐CCAM models over Australia. Earth’s Future, 11(11), e2023EF003548. https://doi.org/10.1029/2023EF003548
-Dowdy, A. J., & Catto, J. L. (2017). Extreme weather caused by concurrent cyclone, front and thunderstorm occurrences. Scientific Reports, 7, 40359. https://doi.org/10.1038/srep40359
-Evans, A., Jones, D., Lellyett, S., & Smalley, R. (2020). An enhanced gridded rainfall analysis scheme for Australia. (Bureau Research Report 41). Australia. Bureau of Meteorology. http://www.bom.gov.au/research/publications/researchreports/BRR-041.pdf
-Firth, R., Kala, J., Hudson, D., Hawke, K. A., & Marshall, A. (2024). ACCESS-S2 seasonal forecasts of rainfall and the SAM–rainfall relationship during the grain growing season in south-west Western Australia. Journal of Southern Hemisphere Earth Systems Science , 74, ES24004. https://doi.org/10.1071/ES24004
-Department of Climate Change, Energy, the Environment and Water (DCCEEW) (2012). Interim Biogeographic Regionalisation for Australia (IBRA), Version 7.1 – Bioregions and subregions dataset. https://fed.dcceew.gov.au/datasets/erin::interim-biogeographic-regionalisation-for-australia-ibra-version-7-1-subregions/about
-Jones, D. A., Wang, W., & Fawcett, R. (2009). High-quality spatial climate data-sets for Australia. Australian Meteorological and Oceanographic Journal, 58(4), 233–248. https://doi.org/10.1071/ES09032
-McKay, R. C., Boschat, G., Rudeva, I., Pepler, A. S., Purich, A., Dowdy, A. J., Hope, P. K., Gillett, Z. E., & Rauniyar, S. (2023). Can southern Australian rainfall decline be explained? A review of possible drivers. Wiley Interdisciplinary Reviews: Climate Change, 14(2), e820. https://doi.org/10.1002/wcc.820
-Python Software Foundation (2025). Python 3.9.25 final. https://docs.python.org/3.9/whatsnew/changelog.html#python-3-9-23
-Thambipillai, T., Kala, J., Hawke, K. A., & di Virgilio, G. (2026). Evaluation of CMIP6 model skill in capturing the combined and independent influences of the IOD and ENSO on Australian rainfall during JJASON. Climate Dynamics, 64(1), 7. https://doi.org/10.1007/s00382-025-07929-9
-Waha, K., Clarke, J., Dayal, K., Freund, M., Heady, C., Parisi, I., & Vogel, E. (2022). Past and future rainfall changes in the Australian midlatitudes and implications for agriculture. Climatic Change, 170(3–4). https://doi.org/10.1007/s10584-021-03301-y
+- Chapman, S., Syktus, J., Trancoso, R., Thatcher, M., Toombs, N., Wong, K. K., & Takbash, A. (2023). Evaluation of Dynamically Downscaled CMIP6‐CCAM models over Australia. Earth’s Future, 11(11), e2023EF003548. https://doi.org/10.1029/2023EF003548
+- Dowdy, A. J., & Catto, J. L. (2017). Extreme weather caused by concurrent cyclone, front and thunderstorm occurrences. Scientific Reports, 7, 40359. https://doi.org/10.1038/srep40359
+- Evans, A., Jones, D., Lellyett, S., & Smalley, R. (2020). An enhanced gridded rainfall analysis scheme for Australia. (Bureau Research Report 41). Australia. Bureau of Meteorology. http://www.bom.gov.au/research/publications/researchreports/BRR-041.pdf
+- Firth, R., Kala, J., Hudson, D., Hawke, K. A., & Marshall, A. (2024). ACCESS-S2 seasonal forecasts of rainfall and the SAM–rainfall relationship during the grain growing season in south-west Western Australia. Journal of Southern Hemisphere Earth Systems Science , 74, ES24004. https://doi.org/10.1071/ES24004
+- Department of Climate Change, Energy, the Environment and Water (DCCEEW) (2012). Interim Biogeographic Regionalisation for Australia (IBRA), Version 7.1 – Bioregions and subregions dataset. https://fed.dcceew.gov.au/datasets/erin::interim-biogeographic-regionalisation-for-australia-ibra-version-7-1-subregions/about
+- Jones, D. A., Wang, W., & Fawcett, R. (2009). High-quality spatial climate data-sets for Australia. Australian Meteorological and Oceanographic Journal, 58(4), 233–248. https://doi.org/10.1071/ES09032
+- McKay, R. C., Boschat, G., Rudeva, I., Pepler, A. S., Purich, A., Dowdy, A. J., Hope, P. K., Gillett, Z. E., & Rauniyar, S. (2023). Can southern Australian rainfall decline be explained? A review of possible drivers. Wiley Interdisciplinary Reviews: Climate Change, 14(2), e820. https://doi.org/10.1002/wcc.820
+- Python Software Foundation (2025). Python 3.9.25 final. https://docs.python.org/3.9/whatsnew/changelog.html#python-3-9-23
+- Thambipillai, T., Kala, J., Hawke, K. A., & di Virgilio, G. (2026). Evaluation of CMIP6 model skill in capturing the combined and independent influences of the IOD and ENSO on Australian rainfall during JJASON. Climate Dynamics, 64(1), 7. https://doi.org/10.1007/s00382-025-07929-9
+- Waha, K., Clarke, J., Dayal, K., Freund, M., Heady, C., Parisi, I., & Vogel, E. (2022). Past and future rainfall changes in the Australian midlatitudes and implications for agriculture. Climatic Change, 170(3–4). https://doi.org/10.1007/s10584-021-03301-y
 
 # Workflow and Scripts
 
