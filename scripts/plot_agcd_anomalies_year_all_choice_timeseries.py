@@ -161,16 +161,16 @@ for i, (ax, var) in enumerate(zip(axes, variables_to_plot)):
     ax.tick_params(axis="y", labelsize=tick_fs)
 
     # ✅ PANEL LABEL
-    label = f"{chr(97 + i)})"   # a), b), c), ...
-    ax.text(
-        0.02, 0.92,
-        label,
-        transform=ax.transAxes,
-        fontsize=14,
-        fontweight="bold",
-        va="top",
-        ha="left"
-    )
+#    label = f"{chr(97 + i)})"   # a), b), c), ...
+#    ax.text(
+#        0.02, 0.92,
+#        label,
+#        transform=ax.transAxes,
+#        fontsize=14,
+#        fontweight="bold",
+#        va="top",
+#        ha="left"
+#    )
 
 # ---------------------------------------------------------
 # ALIGN Y-AXIS LABELS
@@ -193,7 +193,7 @@ axes[-1].set_xticklabels(
 # ---------------------------------------------------------
 # TITLE + FOOTNOTE
 # ---------------------------------------------------------
-fig.suptitle("SWWA Climate Anomalies (AGCD)", fontsize=20)
+#fig.suptitle("SWWA Climate Anomalies (AGCD)", fontsize=20)
 
 plt.tight_layout()
 plt.subplots_adjust(bottom=0.22)
