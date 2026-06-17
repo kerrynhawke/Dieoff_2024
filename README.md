@@ -86,6 +86,8 @@ This section describes the workflow used to generate monthly climatology and ano
 - plot_agcd_anomalies_year_precip_tmax_tmin_timeseries.py	(interim timeseries plot, precip-tmax-tmin only)
 - plot_agcd_anomalies_year_precip_tmax_vpd15_timeseries.py	(interim timeseries plot, precip-tmax-vpd15 only)
 
+### Figure for article
+- SWWA_dynamic_panel_AGCD.png
 
 ## 4. Creation of the anomaly map figures
 ### Data preparation workflow
@@ -171,7 +173,7 @@ swwa_<var>_clim_1995_2024.nc         # recent climatology
 ## Anomaly map plots creation workflow
 ```
 Each variable was analysed separately, first with no land mask and no set scale in order to ascertain the optimal colour scale range. Once the colour scale range was chosen, the final anomaly plot for each variable was created, masked to show land only, with the IBRA region used in the timeseries plots and elsewhere in the project included on each map for reference. 
-Sixteen month plots (April 2023 to July 2024 inclusive) for each variables were chosen initially to evaluated the optimal month set for inclusion in the research. 
+plot_agcd_anomalies_year_all_maps_panel_scale_landonly.pySixteen month plots (April 2023 to July 2024 inclusive) for each variables were chosen initially to evaluated the optimal month set for inclusion in the research. 
 ```
 
 ### Scripts
@@ -185,5 +187,7 @@ Sixteen month plots (April 2023 to July 2024 inclusive) for each variables were 
 - plot_agcd_anomalies_year_vpd15_maps_panel_noscale.py		    (interim vpd15 map plot to ascertain colour scale for final plot, no land mask)
 - plot_agcd_anomalies_year_vpd15_maps_panel_scale_landonly.py	(final vpd15 map plot, set scale, month/year choice, masked to land only)
 
-- plot_agcd_anomalies_year_all_maps_panel_scale_landonly.py     (final combined variables map plot for inclusion in paper - set scales, month/year choice, masked to land only)
+- plot_agcd_anomalies_year_allvar_maps_altpanel_legend_noticks_yr_scale_landonly.py     (final combined variables map plot for inclusion in paper - set scales, month/year choice, masked to land only)
 
+### Figure for article
+- SWWA_vars_down_months_across_A4_year_headers_2023_07_to_2024_06.png
