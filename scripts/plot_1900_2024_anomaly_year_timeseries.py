@@ -57,7 +57,7 @@ files = {
         "monthly": "mask_month_means_agcd_vpd15_1971_2024.nc",
         "clim":    "mask_monclim_agcd_vpd15_1971_2000.nc",
         "var":     "vpd",
-        "ylabel":  "VPD (kPa, 3pm)"
+        "ylabel":  "VPD15 (kPa)"
     }
 }
 
@@ -210,7 +210,7 @@ axes[-1].text(
 # ---------------------------------------------------------
 # SAVE
 # ---------------------------------------------------------
-outfile = os.path.join(output_dir, "SWWA_dynamic_panel_AGCD.png")
+outfile = os.path.join(output_dir, "1900_2024_anomaly_year_timeseries.png")
 
 plt.savefig(outfile, dpi=300, bbox_inches="tight")
 plt.close()

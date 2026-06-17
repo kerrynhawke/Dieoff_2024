@@ -87,7 +87,7 @@ This section describes the workflow used to generate monthly climatology and ano
 - plot_agcd_anomalies_year_precip_tmax_vpd15_timeseries.py	(interim timeseries plot, precip-tmax-vpd15 only)
 
 ### Figure for article
-- SWWA_dynamic_panel_AGCD.png
+- 1900_2024_anomaly_year_timeseries.png
 
 ## 4. Creation of the anomaly map figures
 ### Data preparation workflow
@@ -187,7 +187,7 @@ plot_agcd_anomalies_year_all_maps_panel_scale_landonly.pySixteen month plots (Ap
 - plot_agcd_anomalies_year_vpd15_maps_panel_noscale.py		    (interim vpd15 map plot to ascertain colour scale for final plot, no land mask)
 - plot_agcd_anomalies_year_vpd15_maps_panel_scale_landonly.py	(final vpd15 map plot, set scale, month/year choice, masked to land only)
 
-- plot_agcd_anomalies_year_allvar_maps_altpanel_legend_noticks_yr_scale_landonly.py     (final combined variables map plot for inclusion in paper - set scales, month/year choice, masked to land only)
+- plot_2023_24_month_anomaly_maps.py     (final combined variables map plot for inclusion in paper - set scales, month/year choice, masked to land only)
 
 ### Figure for article
-- SWWA_vars_down_months_across_A4_year_headers_2023_07_to_2024_06.png
+- 2023_24_month_anomaly_maps.png

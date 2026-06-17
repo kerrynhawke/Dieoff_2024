@@ -40,7 +40,7 @@ varinfo = {
         "cmap": "RdBu_r"
     },
     "vpd15": {
-        "title": "VPD (kPa)",
+        "title": "VPD15 (kPa)",
         "path": os.path.join(base_dir, "..", "outputs_maps", "swwa_vpd15_anom_2023_2024.nc"),
         "var": "vpd15",
         "vmin": -4,
@@ -270,7 +270,7 @@ cb3.ax.tick_params(labelsize=12)
 
 outfile = os.path.join(
     base_dir, "..", "figs",
-    f"SWWA_vars_down_months_across_A4_year_headers_{start_year}_{start_month:02d}_to_{end_year}_{end_month:02d}.png"
+    f"2023_2024_month_anomaly_maps.png"
 )
 
 print("Saving figure to:", outfile)
