@@ -20,7 +20,7 @@ os.makedirs(output_dir, exist_ok=True)
 variables_to_plot = [
     "precip",
     "tmax",
-    "tmean",
+#    "tmean",
     "tmin",
     "vpd"
 ]

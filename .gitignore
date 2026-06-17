@@ -9,6 +9,7 @@ mask/
 outputs/
 outputs_maps/
 scripts/temp/
+scripts/superceded/
 
 # Files (user added)
 *.nc
